@@ -24,7 +24,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .link{
     -fx-font-size: 19px;
-    -fx-font-family: "IMPACT";
     -fx-text-fill: pink;
 }
 
@@ -33,7 +32,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .link:pressed{
-    -fx-text-fill: black;
+    -fx-text-fill: pink;
 }
 
 #btn-login{

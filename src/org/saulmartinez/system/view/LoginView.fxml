@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../resources/styles/LoginStyles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../resources/styles/LoginStyles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saulmartinez.system.controller.LoginController">
    <padding>
       <Insets top="15.0" />
    </padding>
@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/depositphotos_28451539-stock-photo-real-normal-person-portrait.jpg" />
+                  <Image url="@../resources/images/coconut.jpg" />
                </image></ImageView>
             <Label alignment="TOP_LEFT" styleClass="etiqueta" text="Ingrese su nonbre de usuario o correo" />
             <TextField styleClass="campo" />
@@ -28,10 +28,10 @@
             <PasswordField styleClass="campo" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Hyperlink styleClass="link" text="¿No tienes cuenta? Registrate" />
+                  <Hyperlink onMouseClicked="#onRegister" styleClass="link" text="¿No tienes cuenta? Registrate" />
                </children>
             </HBox>
-            <Button id="btn-login" alignment="CENTER" mnemonicParsing="false" text="Button" />
+            <Button id="btn-login" alignment="CENTER" mnemonicParsing="false" text="Registrarse" />
          </children>
       </VBox>
    </children>
