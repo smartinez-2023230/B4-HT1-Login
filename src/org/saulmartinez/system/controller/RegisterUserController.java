@@ -15,17 +15,22 @@ import org.saulmartinez.system.utils.ViewFactory;
  *
  * @author informatica
  */
-public class RegisterUserController implements Initializable{
+public class RegisterUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+
     }
-    
+
     @FXML
-    public void onCancelRegister(MouseEvent event){
+    public void onCancelRegister(MouseEvent event) {
         ViewFactory viewFacto = new ViewFactory();
         viewFacto.viewLogin();
     }
-    
+
+    @FXML
+    public void onCreateUser(MouseEvent event) {
+        
+    }
+
 }
