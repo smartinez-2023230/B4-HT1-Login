@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import org.saulmartinez.system.service.UserService;
+import org.saulmartinez.system.service.UserStatus;
 import org.saulmartinez.system.utils.AlertInformation;
 import org.saulmartinez.system.utils.Validations;
 import org.saulmartinez.system.utils.ViewFactory;
@@ -41,6 +43,7 @@ public class RegisterUserController implements Initializable {
 
     private Validations validate = new Validations();
     private AlertInformation alertInfo = new AlertInformation();
+    private UserService userService = new UserService();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,12 +71,12 @@ public class RegisterUserController implements Initializable {
         password = pwdPassword.getText().trim();
         confirmPass = pwdConfirmPass.getText().trim();
 
-        if (validate.isFieldEmpty(user) == false
-                || validate.isFieldEmpty(name) == false
-                || validate.isFieldEmpty(lastName) == false
-                || validate.isFieldEmpty(email) == false
-                || validate.isFieldEmpty(password) == false
-                || validate.isFieldEmpty(confirmPass) == false) {
+        if (validate.isFieldEmpty(user) == true
+                || validate.isFieldEmpty(name) == true
+                || validate.isFieldEmpty(lastName) == true
+                || validate.isFieldEmpty(email) == true
+                || validate.isFieldEmpty(password) == true
+                || validate.isFieldEmpty(confirmPass) == true) {
             alertInfo.viewAlert("ERROR", "ERROR DE CAMPOS VACIOS",
                     "ERROR DE CAMPO",
                     "DEJÓ CAMPOS VACIOS DEL FORMULARIO");
@@ -82,12 +85,45 @@ public class RegisterUserController implements Initializable {
         }
 
         //Longitud de texto
-        if (validate.validateLengthOfText(user, 25)||
-            validate.validateLengthOfText(name, 50) ||
-            validate.validateLengthOfText(lastName, 50)||
-            validate.validateLengthOfText(email, 50) ||
-            validate.validateLengthOfText(password, 50)){
-            
+        String msgField = "";
+        if (validate.validateLengthOfText(user, 25) == false) {
+            msgField = "El campo usuario es mayor de 25 caracteres";
+        }
+        if (validate.validateLengthOfText(name, 50) == false) {
+            msgField = "El campo name es mayor de 50 caracteres";
+        }
+        if (validate.validateLengthOfText(lastName, 50) == false) {
+            msgField = "El campo lastName es mayor de 50 caracteres";
+        }
+        if (validate.validateLengthOfText(email, 50) == false) {
+            msgField = "El campo email es mayor de 50 caracteres";
+        }
+        if (validate.validateLengthOfText(password, 35) == false) {
+            msgField = "El campo password es mayor de 35 caracteres";
+        }
+        if (msgField.isEmpty() == false) {
+            alertInfo.viewAlert("ERROR", "ERROR DE CAMPO", "ERROR", msgField);
+            return;
+        }
+        if (validate.equalsText(password, confirmPass) == false) {
+            alertInfo.viewAlert("ERROR", "ERROR DE CONTRASEÑA", "ERROR", "SUS CONTRASEÑAS NO COINCIDEN");
+            return;
+        }
+        UserStatus status
+                = userService.createUser(user, name, lastName, email, password);
+
+        switch (status) {
+            case UserStatus.ERROR_USER_CREATE ->
+                System.out.println("Error al crear en crtl");
+            case UserStatus.USER_CREATED ->
+                System.out.println("Si se creo el usuario");
+            case UserStatus.EMPTY_FIELDS ->
+                System.out.println("Los campos no estan vacios");
+            case UserStatus.INVALID_LENGTH_VALUE ->
+                System.out.println("Validar longitud del texto");
+
+            default ->
+                System.out.println("Uknown error");
         }
     }
 

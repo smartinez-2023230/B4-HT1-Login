@@ -17,6 +17,8 @@ public class User {
     private String password;
     private String user;
 
+    public User(){}
+    
     public User(String iduser, String email, String name, String lastname, String password, String user) {
         this.iduser = iduser;
         this.email = email;
@@ -26,6 +28,16 @@ public class User {
         this.user = user;
     }
 
+    public User(String password, String email, String name, String lastname, String user) {
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.lastname = lastname;
+        this.user = user;
+    }
+
+    
+    
     public String getId_user() {
         return iduser;
     }

@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/mario-mario-dancing.gif" />
+                  <Image url="@../resources/images/robin-hsr-robin-summereto.gif" />
                </image></ImageView>
             <Label alignment="TOP_LEFT" styleClass="etiqueta" text="Ingrese su nonbre de usuario o correo" textFill="WHITE" />
             <TextField styleClass="campo" />

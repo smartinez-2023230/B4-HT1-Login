@@ -6,15 +6,19 @@ package org.saulmartinez.system.repository;
 
 import org.saulmartinez.system.model.User;
 import java.sql.CallableStatement;
+import java.sql.SQLException;
 import org.saulmartinez.system.config.ConexionDB;
+
 /**
  *
  * @author informatica
  */
 public class UserRepository implements UserInterface {
+
     private CallableStatement callSP;
-    private ConexionDB conexionDB = ConexionDB.getInstanciaConexionDB();    
-    
+    private ConexionDB conexionDB = ConexionDB.getInstanciaConexionDB();
+    public UserRepository(){}
+
     @Override
     public void create(User user) {
         try {
@@ -24,11 +28,14 @@ public class UserRepository implements UserInterface {
             callSP.setString(3, user.getEmail());
             callSP.setString(4, user.getUser());
             callSP.setString(5, user.getPassword());
-            
+
             callSP.execute();
-            
+
             callSP.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("Error al crear el usuario");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
