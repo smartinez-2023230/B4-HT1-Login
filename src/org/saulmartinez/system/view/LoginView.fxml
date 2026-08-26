@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../resources/styles/LoginStyles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saulmartinez.system.controller.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" styleClass="vBox" stylesheets="@../resources/styles/LoginStyles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saulmartinez.system.controller.LoginController">
    <padding>
       <Insets top="15.0" />
    </padding>
@@ -20,11 +20,11 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/coconut.jpg" />
+                  <Image url="@../resources/images/mario-mario-dancing.gif" />
                </image></ImageView>
-            <Label alignment="TOP_LEFT" styleClass="etiqueta" text="Ingrese su nonbre de usuario o correo" />
+            <Label alignment="TOP_LEFT" styleClass="etiqueta" text="Ingrese su nonbre de usuario o correo" textFill="WHITE" />
             <TextField styleClass="campo" />
-            <Label styleClass="etiqueta" text="Ingrese su contrseña" />
+            <Label styleClass="etiqueta" text="Ingrese su contrseña" textFill="WHITE" />
             <PasswordField styleClass="campo" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>

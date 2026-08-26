@@ -26,3 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 }
 
+.vBox{
+    -fx-background-color: #000000;
+    
+}
